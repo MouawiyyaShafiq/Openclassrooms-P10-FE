@@ -1,23 +1,6 @@
 function HomePage () {
     return (
-        <>
-            <nav class="main-nav">
-                <a class="main-nav-logo" href="./index.html">
-                    <img
-                    class="main-nav-logo-image"
-                    src="./img/argentBankLogo.png"
-                    alt="Argent Bank Logo"
-                    />
-                    <h1 class="sr-only">Argent Bank</h1>
-                </a>
-                <div>
-                    <a class="main-nav-item" href="./sign-in.html">
-                    <i class="fa fa-user-circle"></i>
-                    Sign In
-                    </a>
-                </div>
-            </nav>
-            <main>
+        <main>
             <div class="hero">
                 <section class="hero-content">
                 <h2 class="sr-only">Promoted Content</h2>
@@ -61,11 +44,7 @@ function HomePage () {
                 </p>
                 </div>
             </section>
-            </main>
-            <footer class="footer">
-                <p class="footer-text">Copyright 2020 Argent Bank</p>
-            </footer>
-        </>
+        </main>
     )
 }
 
