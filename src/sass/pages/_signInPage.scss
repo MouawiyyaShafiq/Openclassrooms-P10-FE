@@ -10,6 +10,20 @@
         font-size: 5rem;
     }
 
+    &-errorBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        background-color: #f03f39;
+        border: solid 1px black;
+        font-weight: bold;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+        
     &-input-wrapper {
         display: flex;
         flex-direction: column;

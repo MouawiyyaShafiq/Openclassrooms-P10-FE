@@ -9,7 +9,7 @@ function Router () {
         <Routes>
             <Route path="/" element={<HomePage/>}></Route>
             <Route path="/signIn" element={<SignInPage/>}></Route>
-            <Route path="/user/:currentUserId" element={<UserPage/>}></Route>
+            <Route path="/user" element={<UserPage/>}></Route>
         </Routes>
 
     )
