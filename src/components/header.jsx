@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import logo from "../img/argentBankLogo.png"
 
-function Header ({token, userFirstName}) {
+function Header ({token, userName}) {
     return (
         <nav className="main-nav">
             <NavLink onClick={()=>{sessionStorage.removeItem("authToken")}} className="main-nav-logo" to="/">
@@ -25,7 +25,7 @@ function Header ({token, userFirstName}) {
                     <div>
                         <a href="#" className="main-nav-item">
                         <i className="fa fa-user-circle"></i>
-                        {userFirstName}
+                        {userName}
                         </a>
                     </div>
                     <div>
