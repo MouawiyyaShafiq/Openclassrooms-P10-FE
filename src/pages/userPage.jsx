@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import Account from "../components/account"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 function UserPage () {
 
@@ -48,12 +50,18 @@ function UserPage () {
     return (
 
         !user ? 
+        <>
+        <Header/>
         <main className="main bg-dark">
         <div className="header">
             <h1>Retrieving user information <br/> please wait...</h1>
         </div>
         </main>
+        <Footer/>
+        </>
         :
+        <>
+        <Header token={token}/>
         <main className="main bg-dark">
         <div className="header">
             <h1>Welcome back<br />{user.body.firstName + " " + user.body.lastName + " !"}</h1>
@@ -76,6 +84,8 @@ function UserPage () {
             amountDescription={"Available Balance"}
         />
         </main>
+        <Footer/>
+        </>
        
     )
             
