@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom"
 import logo from "../img/argentBankLogo.png"
+import { useDispatch } from "react-redux"
+import { emptyError, emptyToken } from "./signinForm/signInFormSlice"
 
 function Header ({token, userName}) {
+
+    const dispatch = useDispatch()
+
     return (
         <nav className="main-nav">
-            <NavLink onClick={()=>{sessionStorage.removeItem("authToken")}} className="main-nav-logo" to="/">
+            <NavLink onClick={()=>{dispatch(emptyToken());dispatch(emptyError())}} className="main-nav-logo" to="/">
                 <img
                 className="main-nav-logo-image"
                 src={logo}
@@ -15,7 +20,7 @@ function Header ({token, userName}) {
 
             {!token ?
                 <div>
-                    <NavLink className="main-nav-item" to="/signIn">
+                    <NavLink onClick={()=>{dispatch(emptyToken());dispatch(emptyError())}} className="main-nav-item" to="/signIn">
                     <i className="fa fa-user-circle"></i>
                     Sign In
                     </NavLink>
@@ -29,7 +34,7 @@ function Header ({token, userName}) {
                         </a>
                     </div>
                     <div>
-                        <NavLink onClick={()=>{sessionStorage.removeItem("authToken")}} className="main-nav-item" to="/">
+                        <NavLink onClick={()=>{dispatch(emptyToken())}} className="main-nav-item" to="/">
                         <i className="fa fa-sign-out"></i>
                         Sign Out
                         </NavLink>
