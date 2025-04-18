@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom"
 import logo from "../img/argentBankLogo.png"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { emptyError, emptyToken } from "./signinForm/signInFormSlice"
 
-function Header ({token, userName}) {
+function Header ({userName}) {
 
     const dispatch = useDispatch()
+    const token = useSelector((state)=>state.signInForm.token)
+    //const userName = useSelector((state)=>state.userNameForm.userName)
 
     return (
         <nav className="main-nav">

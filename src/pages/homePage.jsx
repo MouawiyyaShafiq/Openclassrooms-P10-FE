@@ -7,8 +7,6 @@ import iconSecurity from "../img/icon-security.png"
 
 function HomePage () {
     return (
-        <>
-        <Header/>
         <main>
             <div className="hero">
                 <section className="hero-content">
@@ -43,8 +41,6 @@ function HomePage () {
                 />
             </section>
         </main>
-        <Footer/>
-        </>
     )
 }
 
