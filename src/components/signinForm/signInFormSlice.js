@@ -35,7 +35,6 @@ const signInFormSlice = createSlice({
     initialState : {
         email : "",
         password : "",
-        errorBoxDisplay : false,
         token : null,
         error : null
     },
@@ -46,26 +45,21 @@ const signInFormSlice = createSlice({
         InputedPassword : (state , action) => {
             state.password = action.payload
         },
-        errorBoxDisplayed : (state,action) => {
-            state.errorBoxDisplay = action.payload
-        },
-        emptyToken: (state) => {
+        resetSignInForm : (state) => {
             state.token = null
-        },
-        emptyError: (state) => {
             state.error = null
+            state.email = ""
+            state.password = ""
         }
     },
     extraReducers : (builder) => {
         builder.addCase(loginUser.fulfilled, (state,action) => {
             state.token = action.payload
-            state.errorBoxDisplay = false
             state.email=""
             state.password=""
             state.error=null
         }),
         builder.addCase(loginUser.rejected, (state,action) => {
-            state.errorBoxDisplay = true
             state.error = action.payload
             state.email=""
             state.password=""
@@ -74,4 +68,4 @@ const signInFormSlice = createSlice({
 })
 
 export default signInFormSlice
-export const {InputedEmail,InputedPassword,errorBoxDisplayed,emptyToken,emptyError} = signInFormSlice.actions
+export const {InputedEmail,InputedPassword,resetSignInForm} = signInFormSlice.actions

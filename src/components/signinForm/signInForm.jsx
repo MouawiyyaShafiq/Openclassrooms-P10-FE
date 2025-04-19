@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { InputedEmail,InputedPassword, loginUser } from "./signInFormSlice"
+import { InputedEmail,InputedPassword, loginUser} from "./signInFormSlice"
 
 function SignInForm (){
 
@@ -9,9 +9,8 @@ function SignInForm (){
     const state = useSelector((state)=> state.signInForm)
     const email = state.email
     const password = state.password
-    const errorBoxDisplay = state.errorBoxDisplay
+    const error = state.error
     
-
     const handelSubmit = async (e) => {
         e.preventDefault()
 
@@ -24,9 +23,9 @@ function SignInForm (){
 
     return (
         <form onSubmit={handelSubmit}>
-            {errorBoxDisplay == true ? 
-                <div className="sign-in-content-errorBox">Username or password incorrect please try again</div> 
-                : null
+            {!error ? null
+            : 
+                <div className="sign-in-content-errorBox">Username or password incorrect please try again</div>  
             }
             <div className="sign-in-content-input-wrapper">
                 <label htmlFor="username">Username</label>

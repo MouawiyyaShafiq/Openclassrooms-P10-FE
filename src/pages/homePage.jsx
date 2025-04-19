@@ -1,11 +1,10 @@
 import FeatureItem from "../components/featureItem"
-import Header from "../components/header"
-import Footer from "../components/footer"
 import iconChat from "../img/icon-chat.png"
 import iconMoney from "../img/icon-money.png"
 import iconSecurity from "../img/icon-security.png"
 
 function HomePage () {
+
     return (
         <main>
             <div className="hero">
