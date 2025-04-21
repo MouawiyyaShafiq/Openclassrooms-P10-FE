@@ -1,24 +1,17 @@
 import { NavLink } from "react-router-dom"
 import logo from "../img/argentBankLogo.png"
-import { useDispatch, useSelector } from "react-redux"
-import { resetSignInForm } from "./signinForm/signInFormSlice"
-import { resetUser } from "../pages/userPage/userPageSlice"
-import { resetUserNameForm } from "./userNameForm/userNameFormSlice"
+import { useSelector } from "react-redux"
+
 
 function Header () {
 
-    const dispatch = useDispatch()
-    const token = useSelector((state)=>state.signInForm.token)
+    const token = sessionStorage.getItem("authToken")
     const userName = useSelector((state)=>state.userPage.userName)
 
     return (
         <nav className="main-nav">
-            <NavLink onClick={()=>{
-                dispatch(resetSignInForm())
-                dispatch(resetUser())
-                dispatch(resetUserNameForm())
-                }}
-                 className="main-nav-logo" to="/">
+            <NavLink 
+                className="main-nav-logo" to="/">
                 <img
                 className="main-nav-logo-image"
                 src={logo}
@@ -29,10 +22,7 @@ function Header () {
 
             {!token ?
                 <div>
-                    <NavLink onClick={()=>{
-                        dispatch(resetSignInForm())
-                        dispatch(resetUser())
-                    }} 
+                    <NavLink  
                     className="main-nav-item" to="/signIn">
                     <i className="fa fa-user-circle"></i>
                     Sign In
@@ -47,11 +37,8 @@ function Header () {
                         </a>
                     </div>
                     <div>
-                        <NavLink onClick={()=>{
-                        dispatch(resetSignInForm())
-                        dispatch(resetUser())
-                        dispatch(resetUserNameForm())
-                        }} className="main-nav-item" to="/">
+                        <NavLink 
+                        className="main-nav-item" to="/">
                         <i className="fa fa-sign-out"></i>
                         Sign Out
                         </NavLink>

@@ -1,6 +1,21 @@
 import SignInForm from "../components/signinForm/signInForm"
+import { resetSignInForm } from "../components/signinForm/signInFormSlice"
+import { resetUser } from "./userPage/userPageSlice"
+import { resetUserNameForm } from "../components/userNameForm/userNameFormSlice"
+import { useDispatch } from "react-redux"
+import { useEffect } from "react"
 
 function SignInPage () {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(resetSignInForm())
+        dispatch(resetUser())
+        dispatch(resetUserNameForm())
+        sessionStorage.removeItem("authToken")
+    },[])
+    
     return (
         <main className="main bg-dark">
             <section className="sign-in-content">

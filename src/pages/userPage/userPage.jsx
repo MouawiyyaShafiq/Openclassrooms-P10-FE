@@ -8,7 +8,7 @@ import { displayed } from "../../components/userNameForm/userNameFormSlice"
 function UserPage () {
 
     const dispatch = useDispatch()
-    const token = useSelector((state)=>state.signInForm.token)
+    const token = sessionStorage.getItem("authToken")
     const user = useSelector((state)=>state.userPage.user)
     const error = useSelector((state)=>state.userPage.error)
     const firstName = useSelector((state)=>state.userPage.firstName)

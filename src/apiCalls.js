@@ -16,7 +16,8 @@ export async function requestSignInUser ({ email, password },{rejectWithValue}) 
 
     if (response.status === 200) {
       const data = await response.json()
-      return data.body.token
+      sessionStorage.setItem("authToken",data.body.token)
+      return 
     } else {
       return rejectWithValue("Invalid credentials")
     }

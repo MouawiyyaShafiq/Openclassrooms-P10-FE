@@ -10,7 +10,6 @@ const signInFormSlice = createSlice({
     initialState : {
         email : "",
         password : "",
-        token : null,
         error : null
     },
     reducers : {
@@ -21,7 +20,6 @@ const signInFormSlice = createSlice({
             state.password = action.payload
         },
         resetSignInForm : (state) => {
-            state.token = null
             state.error = null
             state.email = ""
             state.password = ""
@@ -29,7 +27,6 @@ const signInFormSlice = createSlice({
     },
     extraReducers : (builder) => {
         builder.addCase(loginUser.fulfilled, (state,action) => {
-            state.token = action.payload
             state.email=""
             state.password=""
             state.error=null

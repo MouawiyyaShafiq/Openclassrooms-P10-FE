@@ -5,7 +5,7 @@ import { setUserName } from "../../pages/userPage/userPageSlice"
 function UserNameForm (updateUserFailed) {
 
     const dispatch = useDispatch()
-    const token = useSelector((state)=>state.signInForm.token)
+    const token = sessionStorage.getItem("authToken")
     const userName = useSelector((state)=>state.userPage.userName)
     const firstName = useSelector((state)=>state.userPage.firstName)
     const lastName = useSelector((state)=>state.userPage.lastName)

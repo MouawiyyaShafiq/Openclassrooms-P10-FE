@@ -1,9 +1,23 @@
+import { useDispatch } from "react-redux"
 import FeatureItem from "../components/featureItem"
 import iconChat from "../img/icon-chat.png"
 import iconMoney from "../img/icon-money.png"
 import iconSecurity from "../img/icon-security.png"
+import { resetSignInForm } from "../components/signinForm/signInFormSlice"
+import { resetUser } from "./userPage/userPageSlice"
+import { resetUserNameForm } from "../components/userNameForm/userNameFormSlice"
+import { useEffect } from "react"
 
 function HomePage () {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(resetSignInForm())
+        dispatch(resetUser())
+        dispatch(resetUserNameForm())
+        sessionStorage.removeItem("authToken")
+    },[])
 
     return (
         <main className="main">
