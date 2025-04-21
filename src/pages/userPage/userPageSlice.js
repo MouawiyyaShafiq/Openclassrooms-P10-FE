@@ -1,34 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { requestUserInfo } from "../../apiCalls"
 
 export const fetchUser = createAsyncThunk("userPage/fetchUser",
 
-    async (token,{rejectWithValue}) => {
-        try {
-            const response = await fetch ("http://localhost:3001/api/v1/user/profile",{
-            method : "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-            })
-
-            if (response.status === 200) {
-
-                await new Promise(resolve => setTimeout(resolve, 1000))
-                const data = await response.json()
-                return data.body
-
-            } else {
-
-                await new Promise(resolve => setTimeout(resolve, 1000))
-                return rejectWithValue("Failed to fetch user data")
-                
-            } 
-
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-    }
+    (token,{rejectWithValue}) => requestUserInfo(token,{rejectWithValue})
 )
 
 const userPageSlice = createSlice({

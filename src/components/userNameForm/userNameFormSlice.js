@@ -1,36 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { requestUserNameUpdate } from "../../apiCalls"
 
 export const updateUserName = createAsyncThunk("userNameForm/updateUserName",
 
-    async ({token,inputUserName},{rejectWithValue}) => {
-
-        let updateData = JSON.stringify({ "userName": inputUserName }) 
-
-        try {
-            const response = await fetch ("http://localhost:3001/api/v1/user/profile",{
-            method : "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body : updateData
-            })
-
-            if (response.status === 200) {
-
-                return 
-
-            } else {
-
-                return rejectWithValue("Failed to update user name")
-                
-            } 
-
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-
-    }
+    ({token,inputUserName},{rejectWithValue}) => requestUserNameUpdate({token,inputUserName},{rejectWithValue})
 
 )
 

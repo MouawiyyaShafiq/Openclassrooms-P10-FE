@@ -1,33 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { requestSignInUser } from "../../apiCalls"
 
 export const loginUser = createAsyncThunk("signInForm/loginUser",
-
-    async ({ email, password }, { rejectWithValue }) => {
-        
-        let signInData = {
-            "email" : email,
-            "password" : password
-        }
-
-        signInData = JSON.stringify(signInData)
-
-      try {
-        const response = await fetch("http://localhost:3001/api/v1/user/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: signInData
-        })
-  
-        if (response.status === 200) {
-          const data = await response.json()
-          return data.body.token
-        } else {
-          return rejectWithValue("Invalid credentials")
-        }
-      } catch (error) {
-        return rejectWithValue(error.message)
-      }
-    }
+    ({ email, password }, { rejectWithValue }) => requestSignInUser({ email, password }, { rejectWithValue })
 )
 
 const signInFormSlice = createSlice({
