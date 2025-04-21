@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import logo from "../img/argentBankLogo.png"
+import logo from "../img/argentBankLogo.jpg"
 import { useSelector } from "react-redux"
 
 
