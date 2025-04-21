@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 export const loginUser = createAsyncThunk("signInForm/loginUser",
 
@@ -16,16 +16,16 @@ export const loginUser = createAsyncThunk("signInForm/loginUser",
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: signInData
-        });
+        })
   
         if (response.status === 200) {
-          const data = await response.json();
-          return data.body.token;
+          const data = await response.json()
+          return data.body.token
         } else {
-          return rejectWithValue("Invalid credentials");
+          return rejectWithValue("Invalid credentials")
         }
       } catch (error) {
-        return rejectWithValue(error.message);
+        return rejectWithValue(error.message)
       }
     }
 )
@@ -39,10 +39,10 @@ const signInFormSlice = createSlice({
         error : null
     },
     reducers : {
-        InputedEmail : (state , action) => {
+        inputedEmail : (state , action) => {
             state.email = action.payload
         },
-        InputedPassword : (state , action) => {
+        inputedPassword : (state , action) => {
             state.password = action.payload
         },
         resetSignInForm : (state) => {
@@ -68,4 +68,4 @@ const signInFormSlice = createSlice({
 })
 
 export default signInFormSlice
-export const {InputedEmail,InputedPassword,resetSignInForm} = signInFormSlice.actions
+export const {inputedEmail,inputedPassword,resetSignInForm} = signInFormSlice.actions

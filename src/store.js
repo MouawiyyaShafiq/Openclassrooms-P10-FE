@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import signInFormSlice from "./components/signinForm/signInFormSlice";
-import userPageSlice from "./pages/userPage/userPageSlice";
-import userNameFormSlice from "./components/userNameForm/userNameFormSlice";
+import { configureStore } from "@reduxjs/toolkit"
+import signInFormSlice from "./components/signinForm/signInFormSlice"
+import userPageSlice from "./pages/userPage/userPageSlice"
+import userNameFormSlice from "./components/userNameForm/userNameFormSlice"
 
 const store = configureStore({
     reducer : {

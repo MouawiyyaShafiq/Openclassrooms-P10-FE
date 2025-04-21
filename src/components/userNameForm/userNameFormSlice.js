@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 export const updateUserName = createAsyncThunk("userNameForm/updateUserName",
 
@@ -27,7 +27,7 @@ export const updateUserName = createAsyncThunk("userNameForm/updateUserName",
             } 
 
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error.message)
         }
 
     }

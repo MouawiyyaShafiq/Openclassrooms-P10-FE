@@ -27,7 +27,7 @@ function UserPage () {
         }
 
         if(token){
-          getUser();  
+          getUser()
         }
 
     },[token,dispatch])

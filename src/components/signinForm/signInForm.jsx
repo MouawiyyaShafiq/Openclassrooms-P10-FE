@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { InputedEmail,InputedPassword, loginUser} from "./signInFormSlice"
+import { inputedEmail,inputedPassword, loginUser} from "./signInFormSlice"
 
 function SignInForm (){
 
@@ -30,13 +30,13 @@ function SignInForm (){
             <div className="sign-in-content-input-wrapper">
                 <label htmlFor="username">Username</label>
                 <input type="text" id="username" value={email}
-                    onChange={(e)=>{dispatch(InputedEmail(e.target.value))}}
+                    onChange={(e)=>{dispatch(inputedEmail(e.target.value))}}
                 />
             </div>
             <div className="sign-in-content-input-wrapper">
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" value={password}
-                    onChange={(e)=>{dispatch(InputedPassword(e.target.value))}}
+                    onChange={(e)=>{dispatch(inputedPassword(e.target.value))}}
                 />
             </div>
             <div className="sign-in-content-input-remember">

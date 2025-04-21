@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 export const fetchUser = createAsyncThunk("userPage/fetchUser",
 
@@ -14,19 +14,19 @@ export const fetchUser = createAsyncThunk("userPage/fetchUser",
 
             if (response.status === 200) {
 
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise(resolve => setTimeout(resolve, 1000))
                 const data = await response.json()
                 return data.body
 
             } else {
 
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                return rejectWithValue("Failed to fetch user data");
+                await new Promise(resolve => setTimeout(resolve, 1000))
+                return rejectWithValue("Failed to fetch user data")
                 
             } 
 
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error.message)
         }
     }
 )
