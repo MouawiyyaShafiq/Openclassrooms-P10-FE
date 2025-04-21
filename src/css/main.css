@@ -6,7 +6,14 @@
 }
 .main-nav > div {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 5px;
+}
+@media (min-width: 720px) {
+  .main-nav > div {
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 .main-nav a {
   font-weight: bold;
@@ -133,7 +140,7 @@
 .sign-in-content-icon {
   font-size: 5rem;
 }
-.sign-in-content-errorBox {
+.sign-in-content .sign-in-content-errorBox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,26 +153,26 @@
   margin-bottom: 10px;
   height: 50px;
 }
-.sign-in-content-input-wrapper {
+.sign-in-content .sign-in-content-input-wrapper {
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-bottom: 1rem;
 }
-.sign-in-content-input-wrapper label {
+.sign-in-content .sign-in-content-input-wrapper label {
   font-weight: bold;
 }
-.sign-in-content-input-wrapper input {
+.sign-in-content .sign-in-content-input-wrapper input {
   padding: 5px;
   font-size: 1.2rem;
 }
-.sign-in-content-input-remember {
+.sign-in-content .sign-in-content-input-remember {
   display: flex;
 }
-.sign-in-content-input-remember label {
+.sign-in-content .sign-in-content-input-remember label {
   margin-left: 0.25rem;
 }
-.sign-in-content-button {
+.sign-in-content .sign-in-content-button {
   display: block;
   width: 100%;
   padding: 8px;
@@ -190,32 +197,32 @@
   padding: 10px;
   min-width: 150px;
 }
-.header-editForm {
+.header .header-editForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.header-editForm-inputWrapper {
+.header .header-editForm-inputWrapper {
   display: flex;
   align-items: center;
   text-align: left;
   gap: 10px;
 }
-.header-editForm-inputWrapper label {
+.header .header-editForm-inputWrapper label {
   font-weight: bold;
   font-size: 1.2rem;
 }
-.header-editForm-inputWrapper input {
+.header .header-editForm-inputWrapper input {
   padding: 2px;
   font-size: 1.2rem;
 }
-.header-editForm-buttons {
+.header .header-editForm-buttons {
   margin-top: 10px;
   display: flex;
   gap: 20px;
 }
-.header-editForm-buttons-button {
+.header .header-editForm-buttons-button {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
@@ -224,7 +231,7 @@
   padding: 10px;
   min-width: 150px;
 }
-.header-errorBox {
+.header .header-errorBox {
   display: flex;
   align-items: center;
   justify-content: center;
