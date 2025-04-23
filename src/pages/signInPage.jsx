@@ -9,6 +9,7 @@ function SignInPage () {
 
     const dispatch = useDispatch()
 
+    // UseEffect permettant de reset le state au render du homepage
     useEffect(() => {
         dispatch(resetSignInForm())
         dispatch(resetUser())

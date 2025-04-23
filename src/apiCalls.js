@@ -1,3 +1,4 @@
+// Fonction permettant de faire une requête pour login l'user en récupérant le token
 export async function requestSignInUser ({ email, password },{rejectWithValue}) {
     
     let signInData = {
@@ -27,6 +28,7 @@ export async function requestSignInUser ({ email, password },{rejectWithValue}) 
 
 }
 
+// Fonction permettant de faire une requête pour récupérer les infos sur l'user en utilisant le token
 export async function requestUserInfo (token,{rejectWithValue}) {
     try {
         const response = await fetch ("http://localhost:3001/api/v1/user/profile",{
@@ -55,6 +57,7 @@ export async function requestUserInfo (token,{rejectWithValue}) {
     }
 }
 
+// Fonction permettant de faire une requête en utilisant le token pour mettre à jour le username du user
 export async function requestUserNameUpdate ({token,inputUserName},{rejectWithValue}) {
 
     let updateData = JSON.stringify({ "userName": inputUserName }) 

@@ -10,6 +10,9 @@ function SignInForm (){
     const email = state.email
     const password = state.password
     const error = state.error
+
+    // Fonction appelée au click sur le bouton signIn
+    // permettant d'appeler l'action qui envoie les données de login a l'api pour récupérer le token
     
     const handelSubmit = async (e) => {
         e.preventDefault()

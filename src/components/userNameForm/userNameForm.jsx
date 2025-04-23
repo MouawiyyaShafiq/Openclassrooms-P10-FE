@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
-import { displayed, inputedUserName, resetUserNameForm, updateUserName } from "./userNameFormSlice"
+import { inputedUserName, resetUserNameForm, updateUserName } from "./userNameFormSlice"
 import { setUserName } from "../../pages/userPage/userPageSlice"
 
-function UserNameForm (updateUserFailed) {
+function UserNameForm () {
 
     const dispatch = useDispatch()
     const token = sessionStorage.getItem("authToken")
@@ -11,6 +11,9 @@ function UserNameForm (updateUserFailed) {
     const lastName = useSelector((state)=>state.userPage.lastName)
     const inputUserName = useSelector((state)=>state.userNameForm.inputUserName)
     const error = useSelector((state)=>state.userNameForm.error)
+
+    // Fonction appelée au click sur le bouton save 
+    // permettant d'appeler l'action qui met à jour l'username sur l'api
 
     const handelSubmit = async (e) => {
         e.preventDefault()

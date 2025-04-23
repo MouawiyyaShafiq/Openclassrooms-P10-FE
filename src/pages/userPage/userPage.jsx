@@ -15,6 +15,8 @@ function UserPage () {
     const lastName = useSelector((state)=>state.userPage.lastName)
     const editMode = useSelector((state)=>state.userNameForm.displayed)
 
+    // UseEffect permettant de lancer une fonction au render de la page qui appelle 
+    // un thunk fonction qui permet de récupérer les infos du user
     useEffect(()=>{
 
         const getUser = async () => {
