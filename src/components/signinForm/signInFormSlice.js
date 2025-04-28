@@ -10,7 +10,8 @@ const signInFormSlice = createSlice({
     initialState : {
         email : "",
         password : "",
-        error : null
+        error : null,
+        token : sessionStorage.getItem("authToken")?sessionStorage.getItem("authToken"):null
     },
     reducers : {
         inputedEmail : (state , action) => {
@@ -23,6 +24,7 @@ const signInFormSlice = createSlice({
             state.error = null
             state.email = ""
             state.password = ""
+            state.token = sessionStorage.getItem("authToken")?sessionStorage.getItem("authToken"):null
         }
     },
     extraReducers : (builder) => {
@@ -30,6 +32,8 @@ const signInFormSlice = createSlice({
             state.email=""
             state.password=""
             state.error=null
+            state.token = action.payload
+            sessionStorage.setItem("authToken",action.payload)
         }),
         builder.addCase(loginUser.rejected, (state,action) => {
             state.error = action.payload

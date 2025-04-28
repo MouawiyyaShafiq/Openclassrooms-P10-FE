@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 
 function Header () {
 
-    const token = sessionStorage.getItem("authToken")
+    const token = useSelector((state)=>state.signInForm.token)
     const userName = useSelector((state)=>state.userPage.userName)
 
     return (
