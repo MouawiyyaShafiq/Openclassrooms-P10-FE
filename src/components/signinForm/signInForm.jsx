@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { inputedEmail,inputedPassword, loginUser} from "./signInFormSlice"
+import { useState } from "react"
 
 function SignInForm (){
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const state = useSelector((state)=> state.signInForm)
-    const email = state.email
-    const password = state.password
-    const error = state.error
+    const [email, setEmail] = useState("") 
+    const [password, setpassword] = useState("") 
+    const [error, seterror] = useState(null) 
 
     // Fonction appelée au click sur le bouton signIn
     // permettant d'appeler l'action qui envoie les données de login a l'api pour récupérer le token
@@ -21,6 +21,13 @@ function SignInForm (){
         
         if(loginUser.fulfilled.match(result)){
             navigate("/user")
+            setEmail("")
+            setpassword("")
+            seterror(false)
+        }else{
+            setEmail("")
+            setpassword("")
+            seterror(true)
         }
     }
 
@@ -33,13 +40,13 @@ function SignInForm (){
             <div className="sign-in-content-input-wrapper">
                 <label htmlFor="username">Username</label>
                 <input type="text" id="username" value={email}
-                    onChange={(e)=>{dispatch(inputedEmail(e.target.value))}}
+                    onChange={(e)=>{setEmail(e.target.value)}}
                 />
             </div>
             <div className="sign-in-content-input-wrapper">
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" value={password}
-                    onChange={(e)=>{dispatch(inputedPassword(e.target.value))}}
+                    onChange={(e)=>{setpassword(e.target.value)}}
                 />
             </div>
             <div className="sign-in-content-input-remember">
